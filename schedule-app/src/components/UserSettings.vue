@@ -4,7 +4,7 @@
 
     <hr class="my-4" />
 
-    <VForm @submit="onSubmit">
+    <VForm @submit="onSubmit" :validation-schema="validationSchema">
       <div class="text-lg font-semibold">Personal settings</div>
 
       <div class="flex items-center justify-right gap-8">
