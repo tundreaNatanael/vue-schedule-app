@@ -2,8 +2,6 @@
   <div
     class="bg-gray-100 w-full min-h-screen space-y-4 flex flex-col items-center"
   >
-    <Menu />
-
     <div
       :class="[
         'flex items-center justify-center gap-4 text-2xl font-bold rounded-lg shadow-lg px-5 py-3 bg-white',

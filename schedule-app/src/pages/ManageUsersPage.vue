@@ -2,8 +2,6 @@
   <div
     class="bg-gray-100 w-full min-h-screen space-y-6 flex flex-col items-center"
   >
-    <Menu />
-
     <div class="w-full max-w-3xl px-4">
       <input
         type="text"

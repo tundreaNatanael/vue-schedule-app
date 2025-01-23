@@ -2,18 +2,12 @@
   <div
     class="bg-gray-100 w-full min-h-screen space-y-4 flex flex-col items-center"
   >
-    <!-- Menu Component -->
-    <Menu />
-
-    <!-- Form Section -->
     <form
       @submit.prevent="handleSubmit"
       class="space-y-4 p-4 bg-white rounded-lg shadow-md"
     >
-      <!-- Personal Settings Section -->
       <div class="text-lg font-semibold">Personal settings</div>
 
-      <!-- Nickname Input -->
       <div class="flex items-center justify-right gap-8">
         <label for="editNickname">Edit nickname</label>
         <input
@@ -27,7 +21,6 @@
         {{ errors.editNickname }}
       </p>
 
-      <!-- Emoji Input -->
       <div class="flex items-center justify-right gap-8">
         <label for="editEmoji">Edit emoji</label>
         <input
@@ -39,11 +32,9 @@
       </div>
       <p v-if="errors.editEmoji" class="text-red-400">{{ errors.editEmoji }}</p>
 
-      <!-- Admin Section -->
       <div v-if="me.role === 'admin'">
         <div class="text-lg font-semibold">For the whole platform</div>
 
-        <!-- Max Daily Hours Input -->
         <div class="flex items-center justify-right gap-8">
           <label for="maxPlatformDailyHours"
             >Set max number of daily hours</label
@@ -59,7 +50,6 @@
           {{ errors.maxPlatformDailyHours }}
         </p>
 
-        <!-- Max Weekly Hours Input -->
         <div class="flex items-center justify-right gap-8">
           <label for="maxPlatformWeeklyHours"
             >Set max number of weekly hours</label
@@ -75,7 +65,6 @@
           {{ errors.maxPlatformWeeklyHours }}
         </p>
 
-        <!-- General User Settings -->
         <div class="text-lg font-semibold">General user setting</div>
         <div class="flex items-center justify-right gap-8">
           <label for="maxUserWeeklyHours">Set max number of weekly hours</label>
@@ -91,7 +80,6 @@
         </p>
       </div>
 
-      <!-- Submit Button -->
       <div class="flex justify-end">
         <Button label="Save" type="submit" class="bg-pink-600 text-white" />
       </div>
@@ -102,16 +90,16 @@
 <script>
 import { ref, reactive } from "vue";
 import * as Yup from "yup";
-import Menu from "../components/Menu.vue"; // Adjust the path
-import Button from "../components/Button.vue"; // Adjust the path
-import { useMyUser, usePlatformData } from "../data/data"; // Adjust the path
+import Menu from "../components/Menu.vue";
+import Button from "../components/Button.vue";
+import { useMyUser, usePlatformData } from "../data/data";
 
 export default {
   name: "SettingsPage",
   components: { Menu, Button },
   setup() {
-    const me = useMyUser(); // Reactive user data
-    const platformData = usePlatformData(); // Reactive platform data
+    const me = useMyUser(); 
+    const platformData = usePlatformData(); 
 
     const form = reactive({
       editNickname: me.nickname || "",
@@ -144,9 +132,8 @@ export default {
       try {
         await validationSchema.validate(form, { abortEarly: false });
         console.log("Form values:", { ...form });
-        errors.value = {}; // Clear errors on successful validation
+        errors.value = {};
       } catch (validationErrors) {
-        // Collect validation errors
         errors.value = validationErrors.inner.reduce((acc, error) => {
           acc[error.path] = error.message;
           return acc;
@@ -160,5 +147,4 @@ export default {
 </script>
 
 <style scoped>
-/* Add any additional scoped CSS here */
 </style>
