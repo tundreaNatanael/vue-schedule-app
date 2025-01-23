@@ -98,8 +98,8 @@ export default {
   name: "SettingsPage",
   components: { Menu, Button },
   setup() {
-    const me = useMyUser(); 
-    const platformData = usePlatformData(); 
+    const me = useMyUser();
+    const platformData = usePlatformData();
 
     const form = reactive({
       editNickname: me.nickname || "",
@@ -146,5 +146,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
