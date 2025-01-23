@@ -19,7 +19,7 @@
           me.role === "admin" ? "Your hours this week" : "Hours left this week"
         }}
       </span>
-      <Icon name="arrowRight" :size=48 color="gray" />
+      <Icon name="arrowRight" :size="48" color="gray" />
       <span>{{
         me.role === "admin"
           ? me.hoursConsumed
@@ -27,7 +27,7 @@
       }}</span>
     </div>
 
-    <div>date picker</div>
+    <Calendar />
 
     <Button label="Schedule" icon="addBox" class="bg-blue-600 text-white" />
   </div>
@@ -38,6 +38,7 @@ import { ref, computed } from "vue";
 import Menu from "../components/Menu.vue";
 import Button from "../components/Button.vue";
 import Icon from "../components/Icon.vue";
+import Calendar from "../components/Calendar.vue";
 import { useMyUser } from "../data/data";
 
 export default {
@@ -46,6 +47,7 @@ export default {
     Menu,
     Button,
     Icon,
+    Calendar,
   },
   setup() {
     const me = useMyUser();
