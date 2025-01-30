@@ -19,7 +19,7 @@
           me.role === "admin" ? "Your hours this week" : "Hours left this week"
         }}
       </span>
-      <Icon name="arrowRight" :size=48 color="gray" />
+      <Icon name="arrowRight" :size="48" color="gray" />
       <span>{{
         me.role === "admin"
           ? me.hoursConsumed

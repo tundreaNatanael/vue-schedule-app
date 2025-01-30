@@ -16,11 +16,7 @@
     <div
       class="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 px-4"
     >
-      <UserSettings
-        v-for="user in filteredUsers"
-        :key="user.id"
-        :user="user"
-      />
+      <UserSettings v-for="user in filteredUsers" :key="user.id" :user="user" />
       <p
         v-if="filteredUsers.length === 0"
         class="text-gray-500 col-span-full text-center"
